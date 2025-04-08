@@ -7,6 +7,9 @@ function Footer() {
         <p className="text-sm sm:text-base">
           Made by <span className="font-semibold">Sudhanshu Songire</span>
         </p>
+        <p>
+          Github link<a href='https://github.com/sudha2601/Feedback-Form'>https://github.com/sudha2601/Feedback-Form </a>
+        </p>
         <p className="text-xs mt-1 text-gray-400">
           © {new Date().getFullYear()} All rights reserved.
         </p>
