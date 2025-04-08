@@ -39,7 +39,7 @@ const Form1 = () => {
 
   return (
     <div className='flex items-center justify-center bg-cover bg-no-repeat p-4' style={{
-      backgroundImage: 'url("data:image/jpeg;base64,/9j/4AAQSk...")', 
+      backgroundImage: 'url("data:image/jpeg;base64,/9j/4AAQSk...")',
     }}>
       <div className='bg-white bg-opacity-90 shadow-xl rounded-2xl w-full max-w-md p-8 border border-gray-300'>
         <h2 className='text-2xl font-bold text-center text-gray-800 mb-6'>Feedback Form</h2>
@@ -58,11 +58,17 @@ const Form1 = () => {
 
           <div>
             <input
-              {...register("Email", { required: true })}
+              {...register("Email", {
+                required: "Gmail ID is required",
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@gmail\.com$/,
+                  message: "Please enter a valid Gmail address (must end with @gmail.com)"
+                }
+              })}
               placeholder='Email ID'
               className='w-full p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'
             />
-            {errors.Email && <p className='text-red-600 text-sm mt-1'>Gmail ID is required</p>}
+            {errors.Email && <p className='text-red-600 text-sm mt-1'>{errors.Email.message}</p>}
           </div>
 
           <div>
